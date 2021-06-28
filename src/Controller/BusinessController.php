@@ -14,51 +14,38 @@
 
 namespace App\Controller;
 
-use App\Entity\Book;
 use App\Entity\Bussiness;
-use App\Exception\FormException;
-use App\Form\BookType;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
-
-use FOS\RestBundle\Controller\Annotations\RequestParam;
-use FOS\RestBundle\Controller\Annotations\QueryParam;
-
-use FOS\RestBundle\Request\ParamFetcher;
-use Symfony\Component\HttpFoundation\Request;
+use App\Form\BusinessType;
+use AppBundle\Controller\ApiController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Symfony\Component\Routing\Annotation\Route;
 
-class BookController extends AbstractFOSRestController
+class BusinessController extends ApiController
 {
 
     /**
-     * @param $id
-     * @return Response
+     * @Route("/api/business",methods={"post"})
      */
-    public function getBookAction($id){
-        $em = $this->getDoctrine()->getManager();
-        $book = $em->getRepository(Bussiness::class)->find($id);
+    public function postAction($request): Response
+    {
+        $data = json_decode($request->getContent(), true);
+        $business = new Bussiness();
+        $form = $this->createForm(BusinessType::class, $business,[
+            'allow_extra_fields' => true,
+        ]);
+        $form->submit($data);
 
-        if (!$book) {
-            throw new ResourceNotFoundException( "Resource $id not found");
+        if (!$form->isValid()){
+            return $this->json($this->getErrorsFromForm($form),400);
         }
 
-        $view = $this->view($book, Response::HTTP_OK , []);
-        return $this->handleView($view);
-    }
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($business);
+        $em->flush();
 
-    /**
-     * @param Request $request
-     * @throws FormException
-     * @return Response
-     */
-    public function postBookAction(Request $request){
-        // @TODO: restore ParamFetcher
-        // @TODO: workaround for https://github.com/FriendsOfSymfony/FOSRestBundle/issues/2258
+        return $this->json($business,201,[
 
-        $book = new Bussiness();
-        $body=json_decode($request->getContent(), true);
-        return $this->save($book, $body['data']);
+        ]);
     }
 
 }
