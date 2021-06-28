@@ -71,18 +71,12 @@ class Business
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAddress()
+    public function getAddress(): mixed
     {
         return $this->address;
     }
 
-    /**
-     * @param mixed $address
-     */
-    public function setAddress($address)
+    public function setAddress(mixed $address)
     {
         $this->address = $address;
     }
@@ -111,34 +105,22 @@ class Business
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreatedTime()
+    public function getCreatedTime(): ?\DateTime
     {
         return $this->createdTime;
     }
 
-    /**
-     * @param \DateTime|null $createdTime
-     */
-    public function setCreatedTime($createdTime)
+    public function setCreatedTime(?\DateTime $createdTime)
     {
         $this->createdTime = $createdTime;
     }
 
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedTime()
+    public function getUpdatedTime(): ?\DateTime
     {
         return $this->updatedTime;
     }
 
-    /**
-     * @param \DateTime|null $updatedTime
-     */
-    public function setUpdatedTime($updatedTime)
+    public function setUpdatedTime(?\DateTime $updatedTime)
     {
         $this->updatedTime = $updatedTime;
     }

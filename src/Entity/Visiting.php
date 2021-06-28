@@ -53,50 +53,32 @@ class Visiting
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getBusiness()
+    public function getBusiness(): mixed
     {
         return $this->business;
     }
 
-    /**
-     * @param mixed $business
-     */
-    public function setBusiness($business)
+    public function setBusiness(mixed $business)
     {
         $this->business = $business;
     }
 
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreatedTime()
+    public function getCreatedTime(): ?\DateTime
     {
         return $this->createdTime;
     }
 
-    /**
-     * @param \DateTime|null $createdTime
-     */
-    public function setCreatedTime($createdTime)
+    public function setCreatedTime(?\DateTime $createdTime)
     {
         $this->createdTime = $createdTime;
     }
 
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedTime()
+    public function getUpdatedTime(): ?\DateTime
     {
         return $this->updatedTime;
     }
 
-    /**
-     * @param \DateTime|null $updatedTime
-     */
-    public function setUpdatedTime($updatedTime)
+    public function setUpdatedTime(?\DateTime $updatedTime)
     {
         $this->updatedTime = $updatedTime;
     }
