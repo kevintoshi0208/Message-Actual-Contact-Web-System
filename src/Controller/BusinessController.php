@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Entity\Bussiness;
 use App\Exception\FormException;
 use App\Form\BookType;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -36,7 +37,7 @@ class BookController extends AbstractFOSRestController
      */
     public function getBookAction($id){
         $em = $this->getDoctrine()->getManager();
-        $book = $em->getRepository(Book::class)->find($id);
+        $book = $em->getRepository(Bussiness::class)->find($id);
 
         if (!$book) {
             throw new ResourceNotFoundException( "Resource $id not found");
@@ -55,7 +56,7 @@ class BookController extends AbstractFOSRestController
         // @TODO: restore ParamFetcher
         // @TODO: workaround for https://github.com/FriendsOfSymfony/FOSRestBundle/issues/2258
 
-        $book = new Book();
+        $book = new Bussiness();
         $body=json_decode($request->getContent(), true);
         return $this->save($book, $body['data']);
     }
