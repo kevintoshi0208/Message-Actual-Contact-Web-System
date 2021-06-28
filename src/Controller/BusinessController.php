@@ -14,7 +14,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Bussiness;
+use App\Entity\Business;
 use App\Form\BusinessType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,13 +23,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class BusinessController extends ApiController
 {
 
-    /**
-     * @Route("/api/business",methods={"post"})
-     */
+    #[Route("/api/business",methods: "post")]
     public function postAction(Request $request): Response
     {
         $data = json_decode($request->getContent(), true);
-        $business = new Bussiness();
+        $business = new Business();
         $form = $this->createForm(BusinessType::class, $business,[
 
         ]);

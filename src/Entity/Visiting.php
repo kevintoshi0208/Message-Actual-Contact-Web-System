@@ -2,45 +2,39 @@
 
 namespace App\Entity;
 
+use App\Repository\BusinessRepository;
 use App\Repository\VisitingRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=VisitingRepository::class)
- */
+#[ORM\Entity(repositoryClass: VisitingRepository::class)]
 class Visiting
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: "bigint")]
     private $id;
 
-    /**
-     * @var
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bussiness")
-     */
-    private $business;
+    #[ORM\ManyToOne(targetEntity:"Business")]
+    private ?Business $business;
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="created_time", type="datetime", nullable=true, options={"comment"="建立資料時間"})
-     */
-    private $createdTime;
+    #[ORM\Column(
+        name:"created_time",
+        type:"datetime",
+        nullable:true,
+        options:["comment"=>"建立資料時間"]
+    )]
+    private ?\DateTime $createdTime;
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="updated_time", type="datetime", nullable=true, options={"comment"="異動資料時間"})
-     */
-    private $updatedTime;
+    #[ORM\Column(
+        name:"updated_time",
+        type:"datetime",
+        nullable:true,
+        options:["comment"=>"異動資料時間"]
+    )]
+    private ?\DateTime $updatedTime;
 
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
-    private $phone;
+    #[ORM\Column(type:"string", length:20)]
+    private ?string $phone;
 
     public function getId(): ?int
     {

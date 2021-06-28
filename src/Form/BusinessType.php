@@ -3,13 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Book;
-use App\Entity\Bussiness;
+use App\Entity\Business;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 class BusinessType extends AbstractType
 {
@@ -32,7 +30,7 @@ class BusinessType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Bussiness::class,
+            'data_class' => Business::class,
             'csrf_protection' => false,
             'allow_extra_fields' => true
         ]);
