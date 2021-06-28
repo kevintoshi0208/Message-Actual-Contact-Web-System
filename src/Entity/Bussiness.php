@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\BussinessRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=BussinessRepository::class)
@@ -18,24 +20,32 @@ class Bussiness
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Groups({"show_business"})
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Assert\NotBlank()
+     * @Groups({"show_business"})
      * @ORM\Column(type="string", length=255)
      */
     private $address;
 
     /**
+     * @Assert\NotBlank()
+     * @Groups({"show_business"})
      * @ORM\Column(type="decimal", precision=8, scale=3)
      */
-    private $WGS84N;
+    private $wgs84N;
 
     /**
+     * @Assert\NotBlank()
+     * @Groups({"show_business"})
      * @ORM\Column(type="decimal", precision=8, scale=5)
      */
-    private $WGS84E;
+    private $wgs84E;
 
     /**
      * @var \DateTime|null
@@ -85,26 +95,26 @@ class Bussiness
         $this->address = $address;
     }
 
-    public function getWGS84N(): ?string
+    public function getWgs84N(): ?string
     {
-        return $this->WGS84N;
+        return $this->wgs84N;
     }
 
-    public function setWGS84N(string $WGS84N): self
+    public function setWgs84N(string $wgs84N): self
     {
-        $this->WGS84N = $WGS84N;
+        $this->wgs84N = $wgs84N;
 
         return $this;
     }
 
-    public function getWGS84E(): ?string
+    public function getWgs84E(): ?string
     {
-        return $this->WGS84E;
+        return $this->wgs84E;
     }
 
-    public function setWGS84E(string $WGS84E): self
+    public function setWgs84E(string $wgs84E): self
     {
-        $this->WGS84E = $WGS84E;
+        $this->wgs84E = $wgs84E;
 
         return $this;
     }
