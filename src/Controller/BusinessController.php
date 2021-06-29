@@ -28,9 +28,7 @@ class BusinessController extends ApiController
     {
         $data = json_decode($request->getContent(), true);
         $business = new Business();
-        $form = $this->createForm(BusinessType::class, $business,[
-
-        ]);
+        $form = $this->createForm(BusinessType::class, $business,[]);
         $form->submit($data);
 
         if (!$form->isValid()){
@@ -40,11 +38,12 @@ class BusinessController extends ApiController
         }
 
         $em = $this->getDoctrine()->getManager();
+
         $em->persist($business);
         $em->flush();
 
-        return $this->json($business,201,[
-
+        return $this->json(data:$business,status:201,context:[
+            'groups' => 'show_business'
         ]);
     }
 

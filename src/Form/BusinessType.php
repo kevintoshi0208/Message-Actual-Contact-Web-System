@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Book;
 use App\Entity\Business;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BusinessRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -31,7 +32,6 @@ class Business
     #[ORM\Column(type:"decimal", precision:8, scale:3)]
     private ?string $wgs84N;
 
-
     #[Assert\NotBlank]
     #[Groups("show_business")]
     #[ORM\Column(type:"decimal", precision:8, scale:3)]
@@ -57,6 +57,18 @@ class Business
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    #[Pure]
+    #[Groups(["show_business"])]
+    public function getCode(): string
+    {
+        return str_pad(
+            $this->getId(),
+            15,
+            "0",
+            STR_PAD_LEFT
+        );
     }
 
     public function getName(): ?string
@@ -123,5 +135,10 @@ class Business
     public function setUpdatedTime(?\DateTime $updatedTime)
     {
         $this->updatedTime = $updatedTime;
+    }
+
+    public function __toString(): string
+    {
+        $this->getCode();
     }
 }
