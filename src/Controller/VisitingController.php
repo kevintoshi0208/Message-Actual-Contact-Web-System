@@ -40,7 +40,7 @@ class VisitingController extends ApiController
 
         $em->persist($visiting);
         $em->flush();
-        dump($visiting);die();
+
         return $this->json(data:$visiting,status:201,context:[
             'groups' => 'show_visiting'
         ]);
