@@ -4,7 +4,7 @@ namespace App\Service;
 
 class DealVisitTextService
 {
-    public function dealVisitText($text)
+    public function dealVisitText($text): string
     {
         $text = str_replace(" ","",$text);
 
