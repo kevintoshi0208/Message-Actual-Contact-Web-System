@@ -9,6 +9,8 @@ $ docker-compose up -d --build
 
 $ docker exec -it php8-container /bin/bash
 
+root#  composer install
+
 root#  php bin/console doctrine:database:create
 
 root#  php bin/console doctrine:migration:migrate
