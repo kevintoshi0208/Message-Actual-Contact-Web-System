@@ -21,7 +21,9 @@ root#  php bin/console doctrine:migration:migrate --quiet
 
 ### 店家申請
 
-method: POST
+method: 
+
+POST
 
 url: 
 ```
@@ -40,7 +42,9 @@ json payload:
 
 ### 傳送實聯制資訊
 
-method: POST
+method: 
+
+POST
 
 url:
 ```
@@ -62,7 +66,9 @@ json payload:
 
 輸入後場所代碼和時間，可以找過去七天，到過該場所的人
 
-method: GET 
+method: 
+
+GET 
 
 url:
 ```
@@ -73,7 +79,9 @@ http://localhost/api/maybeInfected/byCodeAndTime?code=00010&time=2021-06-30
 
 輸入使用者手機後，可以找過去七天，跟確診者前後四小時到過相同場所的人
 
-method: GET
+method: 
+
+GET
 
 url:
 ```
