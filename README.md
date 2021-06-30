@@ -13,7 +13,7 @@ root#  composer install
 
 root#  php bin/console doctrine:database:create
 
-root#  php bin/console doctrine:migration:migrate
+root#  php bin/console doctrine:migration:migrate --quiet
 
 ```
 
