@@ -5,7 +5,7 @@
 ```
 $ cd docker-compose
 
-$ docker-compose up -d
+$ docker-compose up -d --build
 
 $ docker exec -it php74-container /bin/bash
 
