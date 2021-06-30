@@ -9,6 +9,7 @@ use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 #[ORM\Entity(repositoryClass: VisitingRepository::class)]
 class Visiting
@@ -22,6 +23,10 @@ class Visiting
     #[NotBlank()]
     #[Groups("show_visiting")]
     #[ORM\Column(type:"string", length:20)]
+    #[Regex(
+        pattern: "/^(09[0-9]{8}|(\(\+886\)9[0-9]{8})|(09[0-9]{2}-[0-9]{3}-[0-9]{3}))$/",
+        message: "please enter the valid number"
+    )]
     private ?string $phone;
 
     #[ORM\Column(
@@ -116,7 +121,7 @@ class Visiting
         $this->updatedTime = $updatedTime;
     }
 
-    #[Pure] #[Groups("show_visiting")]
+    #[Groups("show_visiting")]
     public function getCode(): string
     {
         return $this->business? $this->business->getCode():"";
