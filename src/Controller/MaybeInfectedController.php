@@ -25,6 +25,21 @@ class MaybeInfectedController extends ApiController
         return $this->json(data:$data,status:200);
     }
 
+    /** 加強版 輸入後場所代碼和時間，可以找過去七天 到過範圍50公尺場所的 */
+    #[Route("/api/maybeInfected/byCodeAndTimeEnhance")]
+    public function getInfectedByCodeAndTimeEnhanceAction(Request $request): Response
+    {
+        $data = $this
+            ->getDoctrine()
+            ->getRepository(Visiting::class)
+            ->findByCodeAndTimeEnhance(
+                ltrim($request->get("code"),"0"),
+                $request->get("time"),
+            )
+        ;
+        return $this->json(data:$data,status:200);
+    }
+
     /** 輸入使用者手機後，可以找過去七天，跟確診者前後四小時到過相同場所的人 */
     #[Route("/api/maybeInfected/byInfectedPhone")]
     public function getInfectedByInfectedPhoneAction(Request $request): Response

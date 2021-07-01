@@ -87,3 +87,18 @@ url:
 ```
 http://localhost/api/maybeInfected/byInfectedPhone?phone=0975349461
 ```
+
+#### 使用時間和場所代碼(感染範圍50公尺)
+
+加強版 輸入後場所代碼和時間，可以找過去七天 到過範圍50公尺場所的民眾資訊
+
+作法:先篩選東西南北50公尺(+-0.005度分秒)內的場所，在計算兩點實際距離50公尺內後，找到該場所7天內的使用者。
+
+method:
+
+GET
+
+url:
+```
+http://localhost/api/maybeInfected/byCodeAndTimeEnhance?code=00016&time=2021-06-23T10:30:00
+```
