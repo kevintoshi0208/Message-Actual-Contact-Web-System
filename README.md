@@ -40,6 +40,25 @@ json payload:
 }
 ```
 
+備註:
+
+如果需要自動帶入地址，請在.env設定上加入Google Geocode的 API token(沒有的話在跟我要)。
+然侯在清除Symfony的。
+只要不輸入wgs座標就會自動去Google API撈座標。
+
+.env
+```
+GOOGLE_GEOCODE_API_KEY=(API token)
+```
+清除Cache
+```
+$ docker exec -it php8-container /bin/bash
+
+root# php bin/console cache:clear
+```
+
+----
+
 ### 傳送實聯制資訊
 
 method: 
@@ -60,7 +79,11 @@ json payload:
 }
 ```
 
+----
+
 ### 取得可能感染範圍
+
+----
 
 #### 使用時間和場所代碼
 
@@ -75,6 +98,8 @@ url:
 http://localhost/api/maybeInfected/byCodeAndTime?code=00010&time=2021-06-30
 ```
 
+----
+
 #### 使用感染者手機
 
 輸入使用者手機後，可以找過去七天，跟確診者前後四小時到過相同場所的人
@@ -87,6 +112,8 @@ url:
 ```
 http://localhost/api/maybeInfected/byInfectedPhone?phone=0975349461
 ```
+
+----
 
 #### 使用時間和場所代碼(感染範圍50公尺)
 

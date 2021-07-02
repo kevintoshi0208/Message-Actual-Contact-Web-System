@@ -33,3 +33,7 @@ services:
         arguments:
             $defaultContext:
                 datetime_format: 'Y-m-d\TH:i:s'
+
+    App\Adapter\GoogleGeocodeAdapter:
+        arguments:
+            $apiKey: '%env(GOOGLE_GEOCODE_API_KEY)%'

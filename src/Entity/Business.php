@@ -27,15 +27,13 @@ class Business
     #[ORM\Column(type:"string", length:255)]
     private mixed $address;
 
-    #[Assert\NotBlank]
     #[Groups("show_business")]
     #[ORM\Column(type:"decimal", precision:8, scale:3)]
-    private ?string $wgs84N;
+    private ?string $wgs84N = null;
 
-    #[Assert\NotBlank]
     #[Groups("show_business")]
     #[ORM\Column(type:"decimal", precision:8, scale:3)]
-    private ?string $wgs84E;
+    private ?string $wgs84E = null;
 
     #[ORM\Column(
         name:"created_time",
