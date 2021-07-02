@@ -43,8 +43,9 @@ json payload:
 備註:
 
 如果需要自動帶入地址，請在.env設定上加入Google Geocode的 API token(沒有的話在跟我要)。
-然侯在清除Symfony的。
-只要不輸入wgs座標就會自動去Google API撈座標。
+然侯在清除Symfony的Cache。
+
+設定完後只要不輸入wgs座標就會自動去Google API撈座標。
 
 .env
 ```
