@@ -58,7 +58,7 @@ class BusinessController extends ApiController
 
             $business->setWgs84N($location["wgs84N"]);
             $business->setWgs84E($location["wgs84E"]);
-            dump($business);die();
+
         }
 
         $em = $this->getDoctrine()->getManager();

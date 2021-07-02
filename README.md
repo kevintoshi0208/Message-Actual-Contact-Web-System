@@ -15,6 +15,8 @@ root#  php bin/console doctrine:database:create
 
 root#  php bin/console doctrine:migration:migrate --quiet
 
+root# php bin/console cache:warmup --env=prod
+
 ```
 
 ## API
@@ -55,7 +57,7 @@ GOOGLE_GEOCODE_API_KEY=(API token)
 ```
 $ docker exec -it php8-container /bin/bash
 
-root# php bin/console cache:clear
+root# php bin/console cache:clear --env=prod
 ```
 
 ----
