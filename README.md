@@ -140,4 +140,5 @@ http://localhost/api/maybeInfected/byCodeAndTimeEnhance?code=00016&time=2021-06-
 ### 處理億量級的方法
 
 php: nginx + opcache + reverse proxy
-mysql: partition table
+
+mysql: partition table 根據店家的代碼
