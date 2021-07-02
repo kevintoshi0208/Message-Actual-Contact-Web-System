@@ -44,7 +44,7 @@ json payload:
 
 備註:
 
-如果需要自動帶入地址，請在專案內.env設定上加入Google Geocode的 API token(沒有的話 請跟我要 不放在git上)。
+如果需要自動帶入地址，請在專案內.env設定上加入Google Geocode的 API token(不放在git上 沒有的話 請跟我要)。
 
 .env
 ```
