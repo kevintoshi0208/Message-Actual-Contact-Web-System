@@ -44,16 +44,16 @@ json payload:
 
 備註:
 
-如果需要自動帶入地址，請在.env設定上加入Google Geocode的 API token(沒有的話在跟我要)。
-然侯在清除Symfony的Cache。
-
-設定完後只要不輸入wgs座標就會自動去Google API撈座標。
+如果需要自動帶入地址，請在專案內.env設定上加入Google Geocode的 API token(沒有的話 請跟我要 不放在git上)。
 
 .env
 ```
 GOOGLE_GEOCODE_API_KEY=(API token)
 ```
-清除Cache
+
+設定完後只要不輸入wgs座標就會自動去Google API撈座標。
+
+如沒有設定黨還是沒有更新，請清除Symfony的Cache。
 ```
 $ docker exec -it php8-container /bin/bash
 
