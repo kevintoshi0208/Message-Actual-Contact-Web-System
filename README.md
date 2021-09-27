@@ -126,7 +126,6 @@ http://localhost/api/maybeInfected/byInfectedPhone?phone=0975349461
 
 先篩選東西南北50公尺(+-0.005度分秒)內的場所，在計算兩點球面距離50公尺內後，找到該場所7天內的使用者。
 
-如果要在更快要用圖學
 
 method:
 
